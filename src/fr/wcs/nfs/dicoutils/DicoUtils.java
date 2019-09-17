@@ -11,13 +11,9 @@ public class DicoUtils {
 		DicoIhm dico = new DicoIhm();
 		int choixMenu;
 		//Dicoloader fichier= new Dicoloader();
-		
-		
-		
-		public static start() {
-			
 	
-		while (isRunning) {
+		while (isRunning) 
+		{
 			
 			dico.affichageMenu();
 			
@@ -35,12 +31,14 @@ public class DicoUtils {
 			}
 			
 			
-			}
 		}
 		
-		String chaineDeRecherche = saisieUtlisateur.nextLine();
-	
 	}
+	
+		
+		
+	
+	
 
 	private static void choixUtilisateur(int choix) {
 		
@@ -49,3 +47,4 @@ public class DicoUtils {
 	}
 
 }
+
