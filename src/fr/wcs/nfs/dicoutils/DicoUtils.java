@@ -10,6 +10,7 @@ public class DicoUtils {
 		Scanner saisieUtlisateur = new Scanner(System.in);	
 		DicoIhm dico = new DicoIhm();
 		int choixMenu;
+		String saisiRecherche;
 		//Dicoloader fichier= new Dicoloader();
 	
 		while (isRunning) 
