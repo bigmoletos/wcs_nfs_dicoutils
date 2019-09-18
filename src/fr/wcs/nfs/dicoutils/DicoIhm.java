@@ -61,13 +61,20 @@ public class DicoIhm {
 			affichageMenu();
 			affichageMessage("Entrer votre choix: ");
 			setChoixMenu();
+<<<<<<< HEAD
 			if (getChoixMenu() > 0 && getChoixMenu() < 6) {
 
 				affichageMessage("Vous avez choisi le menu: " + getChoixMenu() + "\n");
+=======
+			if(getChoixMenu()>0 && getChoixMenu()<6) {
+
+				affichageMessage("Vous avez choisi le menu: "+getChoixMenu() + "\n");
+>>>>>>> 4cec07e9457c9adce638e73970e297670da9c92e
 				affichageMessage("Veuillez saisir votre recherche: ");
 				setTexte();
 				affichageMessage("vous avez saisi: " + getTexte());
 
+<<<<<<< HEAD
 				token = new DicoMatch(getTexte(), getChoixMenu());
 				token.methode();
 
@@ -76,6 +83,17 @@ public class DicoIhm {
 			} else if (getChoixMenu() == 0) {
 
 				isRunning = false;
+=======
+				token = new DicoMatch(getTexte(),getChoixMenu());
+				token.methode();
+
+				isRunning=false;
+
+			}else if(getChoixMenu()==0) {
+
+
+				isRunning=false;
+>>>>>>> 4cec07e9457c9adce638e73970e297670da9c92e
 
 			}
 		} while (isRunning);
