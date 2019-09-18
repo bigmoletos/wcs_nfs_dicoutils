@@ -3,6 +3,7 @@
  *
  */
 package fr.wcs.nfs.dicoutils;
+
 import java.util.regex.*;
 
 /**
@@ -10,82 +11,77 @@ import java.util.regex.*;
  *
  */
 public class DicoMatch {
-	
+
 	static Boolean match = false;
-	
-	public boolean wordIsPresent (String[] mots, String mot) {
+	DicoIhm ihm;
+	DicoLoader loader;
+	static StringBuilder reponses = new StringBuilder();
+
+	public recupIhm (DicoIhm ihm, DicoLoader loader) {
+		String mot = ihm.getTexte();
+		int choixNumero= ihm.getChoixMenu();
 		
-		for (int i = 0; i < mots.length; i ++) {
+	
+        
+        switch (choixNumero) {
+            case 1:  wordIsPresent(null, choixNumero);
+                     break;
+                     
+            case 2:  startBy(null, choixNumero);
+                     break;
+            case 3:  endBy(null, choixNumero);
+                     break;
+            case 4: ;tableauDictionnaire(null, choixNumero);
+                     break;
+            //case 5: ;
+                     //break;	
+		
+		
+	}
+
+	public StringBuilder wordIsPresent(String[] mots, String mot) {
+
+		for (int i = 0; i < mots.length; i++) {
 			if (mots[i] == mot) {
 				match = true;
-				//System.out.println("Ok, le mot est dans le dico!");
-				}
-			
-		}
-		return match;
-	}
-	
-		
-		
-	public static boolean startBy (String[] mots, String str) {
-
-		
-		for(int i = 0; i < mots.length; i ++) {
-			
-			if (mots[i].startsWith(str)) {
-				match=true;
+				// System.out.println("Ok, le mot est dans le dico!");
 			}
-			
-			
-		}
-		return match;
-	}
-	
-	public static boolean endBy (String[] mots, String str) {
 
-		for(int i = 0; i < mots.length; i ++) {
-			if (mots[i].endsWith(str)) {
-				match=true;
+		}
+		return reponses.append(match);
+	}
+
+	public static StringBuilder startBy(String[] mots, String mot) {
+
+		for (int i = 0; i < mots.length; i++) {
+			if (mots[i].startsWith(mot)) {
+				reponses.append(mots[i]);
+				reponses.append(",");
 			}
 		}
-		return match;
-	}
-	
-	
-		
-		public static boolean content (String[] mots, String mot) {
-			
-			for(int i = 0; i < mots.length; i ++) {
-				if (mots[i].contains(mot)) {
-					match=true;
-				}
-			}
-			return match;
-			}
-		
-		
+		return reponses;
 	}
 
-	public static void main(String[] args) {
-		
-		String str = "ab";
-		String[] mots = {
-				"abaissable", 
-				"abaissables", 
-				"abaissai", 
-				"abaissaient",
-				"hébergeriez",
-				"hébergerions",
-				"hébergerons",
-				"second",
-				"seconda",
-				"secondai"
-				
-		
-		};
-	
-		System.out.println(content(mots, str));
-	}
-			
-		
+	public static StringBuilder endBy(String[] mots, String mot) {
 
+		for (int i = 0; i < mots.length;i++) {
+			if (mots[i].endsWith(mot)) {
+				reponses.append(mots[i]);
+				reponses.append(",");
+			}
+		}
+		return reponses;
+	}
+
+	public static StringBuilder tableauDictionnaire(String[] mots, String mot) {
+
+		for (int i = 0; i < mots.length; i++) {
+			if (mots[i].contains(mot)) {
+				reponses.append(mots[i]);
+				reponses.append(",");
+			}
+		}
+		return reponses;
+	}
+
+}
