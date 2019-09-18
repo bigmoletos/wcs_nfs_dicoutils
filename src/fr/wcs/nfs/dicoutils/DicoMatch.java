@@ -1,12 +1,8 @@
 
 package fr.wcs.nfs.dicoutils;
 
-import java.util.regex.*;
+//import java.util.regex.*;
 
-/**
- * @author franck
- *
- */
 public class DicoMatch {
 
 	static Boolean match = false;
@@ -14,63 +10,46 @@ public class DicoMatch {
 	DicoLoader loader;
 	static StringBuilder reponses = new StringBuilder();
 
-	public recupIhm (DicoIhm ihm, DicoLoader loader) {
-		String mot = ihm.getTexte();
-		int choixNumero= ihm.getChoixMenu();
-	
-	
-        
-        switch (choixNumero) {
-            case 1:  wordIsPresent(null, choixNumero);
-                     break;
-                     
-            case 2:  startBy(null, choixNumero);
-                     break;
-            case 3:  endBy(null, choixNumero);
-                     break;
-            case 4: ;tableauDictionnaire(null, choixNumero);
-                     break;
-            //case 5: ;
-                     //break;	
-        }
-		
-	}
-
-	public StringBuilder wordIsPresent(String[] mots, String mot) {
+	public String wordIsPresent(String[] mots, String mot) {
 
 		for (int i = 0; i < mots.length; i++) {
-			if (mots[i] == mot) {
+			if (mots[i].equals(mot)) {
 				match = true;
-
 			}
 		}
-			return reponses.append(match);
-		
+		if (match) {
+			return reponses.append("Il y une occurrence du mot recherché.\n").toString();
+		} else {
+			return reponses.append("Il n'y a aucun mot correspondant.\n").toString();
+		}
 	}
 
-	public static StringBuilder startBy(String[] mots, String mot) {
+	public String startBy(String[] mots, String mot) {
 
 		for (int i = 0; i < mots.length; i++) {
 			if (mots[i].startsWith(mot)) {
+
 				reponses.append(mots[i]);
 				reponses.append(",");
+				reponses.append("\n");
 			}
 		}
-		return reponses;
+		return reponses.deleteCharAt(reponses.length() - 2).toString();
 	}
 
-	public static StringBuilder endBy(String[] mots, String mot) {
+	public String endBy(String[] mots, String mot) {
 
 		for (int i = 0; i < mots.length; i++) {
 			if (mots[i].endsWith(mot)) {
 				reponses.append(mots[i]);
 				reponses.append(",");
+				reponses.append("\n");
 			}
 		}
-		return reponses;
+		return reponses.toString();
 	}
 
-	public static StringBuilder tableauDictionnaire(String[] mots, String mot) {
+	public String tableauDictionnaire(String[] mots, String mot) {
 
 		for (int i = 0; i < mots.length; i++) {
 			if (mots[i].contains(mot)) {
@@ -78,7 +57,7 @@ public class DicoMatch {
 				reponses.append(",");
 			}
 		}
-		return reponses;
+		return reponses.toString();
 	}
 
 }
