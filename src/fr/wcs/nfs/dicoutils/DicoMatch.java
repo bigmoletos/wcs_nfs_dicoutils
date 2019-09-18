@@ -36,7 +36,9 @@ public class DicoMatch {
 				reponses.append("\n");
 			}
 		}
-		return reponses.deleteCharAt(reponses.length() - 2).toString();
+		reponses.deleteCharAt(reponses.length() - 2);
+		reponses.append("Il y a "+ reponses.length() + " occurences.");
+		return reponses.toString();
 	}
 
 	public String endBy(String[] mots, String mot) {
@@ -47,7 +49,8 @@ public class DicoMatch {
 				reponses.append(",");
 				reponses.append("\n");
 			}
-		}
+		}reponses.deleteCharAt(reponses.length() - 2);
+		reponses.append("Il y a "+ reponses.length() + " occurences.");
 		return reponses.toString();
 	}
 
@@ -58,7 +61,8 @@ public class DicoMatch {
 				reponses.append(mots[i]);
 				reponses.append(",");
 			}
-		}
+		}reponses.deleteCharAt(reponses.length() - 2);
+		reponses.append("Il y a "+ reponses.length() + " occurences.");
 		return reponses.toString();
 	}
 
