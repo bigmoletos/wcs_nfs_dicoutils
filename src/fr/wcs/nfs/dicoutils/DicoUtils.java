@@ -8,6 +8,8 @@ public class DicoUtils {
 		
 		DicoIhm dico = new DicoIhm();
 		
+		// faire return sur dico.start();
+		
 		dico.start();
 		
 		
