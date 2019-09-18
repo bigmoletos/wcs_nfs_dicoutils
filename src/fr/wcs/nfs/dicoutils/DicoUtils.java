@@ -3,44 +3,47 @@ package fr.wcs.nfs.dicoutils;
 import java.io.IOException;
 import java.util.Scanner;
 
+
+
 public class DicoUtils {
 
-	public static void main(String[] args) throws IOException {
+	
+	
+	public static void main(String[] args) {
+		
 
-		DicoLoader loadFichier = new DicoLoader();
-		loadFichier.chargeFichier();
+		DicoIhm ihm = new DicoIhm();
+		DicoMatch match = new DicoMatch();
+		
+		boolean isRunning=true;
+		
+		do 
+		{
+			ihm.affichageMenu();
+			ihm.affichageMessage("Entrer votre choix: ");
+			ihm.setChoixMenu();
+			if(ihm.getChoixMenu()>0 && ihm.getChoixMenu()<6) {
+				
+				ihm.affichageMessage("Vous avez choisi le menu: "+ihm.getChoixMenu() + "\n");
+				ihm.affichageMessage("Veuillez saisir votre recherche: ");
+				ihm.setTexte();				
+				ihm.affichageMessage("vous avez saisi: " + ihm.getTexte());
+				
+				//match.methode(ihm);
 
-		boolean isRunning = true;
-		Scanner saisieUtlisateur = new Scanner(System.in);
-		DicoIhm dico = new DicoIhm();
-		int choixMenu;
-		String saisiRecherche;
-		// Dicoloader fichier= new Dicoloader();
-
-		while (isRunning) {
-
-			dico.affichageMenu();
-
-			System.out.print("Entrer votre choix: ");
-			choixMenu = saisieUtlisateur.nextInt();
-
-			if (choixMenu < 0 || choixMenu > 6) {
-				isRunning = true;
-				System.out.println("Votre choix doit etre entre 0 et 5 ");
-			} else {
-
-				choixUtilisateur(choixMenu);
-				isRunning = false;
+				isRunning=false;
+	
+			}else if(ihm.getChoixMenu()==0) {
+				
+				
+				isRunning=false;
+				
 			}
+		} while(isRunning);
 
-		}
-
-	}
-
-	private static void choixUtilisateur(int choix) {
-
-		System.out.println("Vous avez choix l'option" + choix);
+		
 
 	}
-
+	
+	
 }
