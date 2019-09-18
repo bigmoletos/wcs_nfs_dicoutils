@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * 
  *
@@ -70,3 +71,5 @@ public class DicoLoader {
 	}
 
 }
+=======
+>>>>>>> master
