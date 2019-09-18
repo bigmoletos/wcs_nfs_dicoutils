@@ -17,7 +17,7 @@ public class DicoMatch {
 	public recupIhm (DicoIhm ihm, DicoLoader loader) {
 		String mot = ihm.getTexte();
 		int choixNumero= ihm.getChoixMenu();
-		
+	
 	
         
         switch (choixNumero) {
@@ -32,7 +32,7 @@ public class DicoMatch {
                      break;
             //case 5: ;
                      //break;	
-		
+        }
 		
 	}
 
@@ -41,11 +41,11 @@ public class DicoMatch {
 		for (int i = 0; i < mots.length; i++) {
 			if (mots[i] == mot) {
 				match = true;
-				// System.out.println("Ok, le mot est dans le dico!");
-			}
 
+			}
 		}
-		return reponses.append(match);
+			return reponses.append(match);
+		
 	}
 
 	public static StringBuilder startBy(String[] mots, String mot) {
@@ -59,10 +59,9 @@ public class DicoMatch {
 		return reponses;
 	}
 
-	
 	public static StringBuilder endBy(String[] mots, String mot) {
 
-		for (int i = 0; i < mots.length;i++) {
+		for (int i = 0; i < mots.length; i++) {
 			if (mots[i].endsWith(mot)) {
 				reponses.append(mots[i]);
 				reponses.append(",");
@@ -70,7 +69,6 @@ public class DicoMatch {
 		}
 		return reponses;
 	}
-
 
 	public static StringBuilder tableauDictionnaire(String[] mots, String mot) {
 
@@ -83,11 +81,4 @@ public class DicoMatch {
 		return reponses;
 	}
 
-
-
-	
-
 }
-
-
-
