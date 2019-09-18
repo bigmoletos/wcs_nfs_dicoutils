@@ -1,42 +1,93 @@
-/**
- * 
- *
- */
+
 package fr.wcs.nfs.dicoutils;
+import java.util.regex.*;
 
 /**
  * @author franck
  *
  */
 public class DicoMatch {
-
-	private String texte;
-	private int choixMenu;
-	static boolean match= false;
-	static DicoIhm ihm = new DicoIhm();
 	
+	static Boolean match = false;
 	
-	
-	public DicoMatch(String texte,int choixMenu) {
+	public boolean wordIsPresent (String[] mots, String mot) {
 		
-		this.texte = texte;
-		this.choixMenu = choixMenu;
-		
+		for (int i = 0; i < mots.length; i ++) {
+			if (mots[i] == mot) {
+				match = true;
+				//System.out.println("Ok, le mot est dans le dico!");
+				}
+			
+		}
+		return match;
 	}
 	
-	public void methode() {
 		
-		switch (this.choixMenu) {
-		case 1:  ihm.affichageMessage("Ce message vient de DicoMatch " +this.texte);
-							
-			
-			break;
+		
+	public static boolean startBy (String[] mots, String str) {
 
-		default:
-			break;
+		
+		for(int i = 0; i < mots.length; i ++) {
+			
+			if (mots[i].startsWith(str)) {
+				match=true;
+			}
+			
+			
+		}
+		return match;
+	}
+	
+	public static boolean endBy (String[] mots, String str) {
+
+		for(int i = 0; i < mots.length; i ++) {
+			if (mots[i].endsWith(str)) {
+				match=true;
+			}
+		}
+		return match;
+	}
+	
+	
+		
+		public static boolean content (String[] mots, String mot) {
+			
+			for(int i = 0; i < mots.length; i ++) {
+				if (mots[i].contains(mot)) {
+					match=true;
+				}
+			}
+			return match;
 		}
 		
+		
+	
+
+	public static void main(String[] args) {
+		
+		String str = "ab";
+		String[] mots = {
+				"abaissable", 
+				"abaissables", 
+				"abaissai", 
+				"abaissaient",
+				"hébergeriez",
+				"hébergerions",
+				"hébergerons",
+				"second",
+				"seconda",
+				"secondai"
+				
+		
+		};
+	
+		System.out.println(content(mots, str));
 	}
+			
+		
+
+
 	
 
 }
+
