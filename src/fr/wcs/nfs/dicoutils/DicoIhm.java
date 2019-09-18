@@ -7,9 +7,7 @@ public class DicoIhm {
 	Scanner saisieUtilisateur = new Scanner(System.in);
 	private int choixMenu;
 	private String texte;
-	private boolean isRunning;
-	private DicoMatch token;
-
+	
 
 	public DicoIhm() {
 
@@ -56,36 +54,6 @@ public class DicoIhm {
 	}
 
 
-
-	public void start() {
-		isRunning = true;
-
-		do 
-		{
-			affichageMenu();
-			affichageMessage("Entrer votre choix: ");
-			setChoixMenu();
-			if(getChoixMenu()>0 && getChoixMenu()<6) {
-				
-				affichageMessage("Vous avez choisi le menu: "+getChoixMenu() + "\n");
-				affichageMessage("Veuillez saisir votre recherche: ");
-				setTexte();				
-				affichageMessage("vous avez saisi: " + getTexte());
-				
-				token = new DicoMatch(getTexte(),getChoixMenu());
-				token.methode();
-
-				isRunning=false;
-	
-			}else if(getChoixMenu()==0) {
-				
-				
-				isRunning=false;
-				
-			}
-		} while(isRunning);
-
-	}
 
 
 
