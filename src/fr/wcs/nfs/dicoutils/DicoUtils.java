@@ -1,10 +1,14 @@
 package fr.wcs.nfs.dicoutils;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class DicoUtils {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+
+		DicoLoader loadFichier = new DicoLoader();
+		loadFichier.chargeFichier();
 
 		boolean isRunning = true;
 		Scanner saisieUtlisateur = new Scanner(System.in);
