@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /**
  * 
  *
@@ -185,5 +184,3 @@ public class DicoLoader {
 //		loadFichier.chargeFichier4();
 	}
 }
-=======
->>>>>>> 4cec07e9457c9adce638e73970e297670da9c92e
