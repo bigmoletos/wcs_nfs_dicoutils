@@ -41,21 +41,32 @@ public class DicoLoader {
 //			"wcs_nfs_dicoutils", fichier);
 
 //		methode avec linkedList
+	List<String> tabDico;
 
 	public List<String> chargeFichier1() {
 
 		try {
 			Path chemin = Paths.get(fichierPath);
-			List<String> tabDico = new LinkedList<>();
-			tabDico = Files.readAllLines(chemin);
+			this.tabDico = new LinkedList<>();
+			this.tabDico = Files.readAllLines(chemin);
 //		cast de List <String> en tableau de String[]
 //			String[] tableauDictionnaire = tabDico.toArray(new String[tabDico.size()]);
 //			return tableauDictionnaire;
-			return tabDico;
+			return this.tabDico;
 
 		} catch (Exception e) {
 			System.out.println("oups une erreur! " + e.getMessage());
 		}
 		return null;
 	}
+
+//bonus, rajoute une definition à un mot dans le fichier dictionnaire.text
+	public List<String> addDefinition(int numeroLigne, String motSansDefinition, String definition) {
+		this.tabDico.add(numeroLigne, motSansDefinition + " : " + definition);
+		return tabDico;
+//		regex
+//		String regex = "@#\\?";
+//		String NewsousChaine = sousChaine.replaceAll(regex, " ");
+	}
+
 }
