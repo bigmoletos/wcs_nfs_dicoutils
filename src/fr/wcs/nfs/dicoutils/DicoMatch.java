@@ -9,6 +9,8 @@ import java.util.regex.*;
 public class DicoMatch {
 	
 	static Boolean match = false;
+	DicoIhm ihm;
+	
 	
 	public boolean wordIsPresent (String[] mots, String mot) {
 		
@@ -17,7 +19,6 @@ public class DicoMatch {
 				match = true;
 				//System.out.println("Ok, le mot est dans le dico!");
 				}
-			
 		}
 		return match;
 	}

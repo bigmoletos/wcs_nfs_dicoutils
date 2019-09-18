@@ -14,6 +14,8 @@ public class DicoUtils {
 
 		DicoIhm ihm = new DicoIhm();
 		DicoMatch match = new DicoMatch();
+		DicoLoader loader = new DicoLoader();
+		
 		
 		boolean isRunning=true;
 		
@@ -29,7 +31,7 @@ public class DicoUtils {
 				ihm.setTexte();				
 				ihm.affichageMessage("vous avez saisi: " + ihm.getTexte());
 				
-				//match.methode(ihm);
+				match.recupIhm(ihm,loader);
 
 				isRunning=false;
 	

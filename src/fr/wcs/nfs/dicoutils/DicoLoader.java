@@ -43,7 +43,7 @@ public class DicoLoader {
 	 *
 	 **/
 
-//	gestion du path
+	//	gestion du path
 	Charset charset = Charset.forName("UTF-8");
 	String fichierWithParents = "/../../../../../dictionnaire.txt";
 	String fichier = "dictionnaire.txt";
@@ -64,19 +64,19 @@ public class DicoLoader {
 		File file = new File(fichierPath);
 		System.out.println("path du fichier 4:" + file.getAbsolutePath());
 		try {
-//			String path = "/programmation/workspaceEclipse/wcs_projetJava1_dicoutils/wcs_nfs_dicoutils/src/fr/wcs/nfs/dicoutils/dictionnaire.txt";
+			//			String path = "/programmation/workspaceEclipse/wcs_projetJava1_dicoutils/wcs_nfs_dicoutils/src/fr/wcs/nfs/dicoutils/dictionnaire.txt";
 			InputStream flux = new FileInputStream(fichierPath);
-//			System.out.println("lecture fichier" + path);
+			//			System.out.println("lecture fichier" + path);
 
 			InputStreamReader lecture = new InputStreamReader(flux);
 			BufferedReader buff = new BufferedReader(lecture);
 			String ligne;
 			while ((ligne = buff.readLine()) != null) {
 
-//			methode tableau
-//				String[] tabFichier = new String[336532];
-//
-//			}
+				//			methode tableau
+				//				String[] tabFichier = new String[336532];
+				//
+				//			}
 
 				buff.close();
 			}
@@ -85,7 +85,7 @@ public class DicoLoader {
 		}
 	}
 
-//		methode avec linkedList
+	//		methode avec linkedList
 	public void chargeFichier1() throws IOException {
 
 		int nbreLignes = 0;
@@ -94,29 +94,29 @@ public class DicoLoader {
 		for (String mot : lignes) {
 			nbreLignes++;
 			System.out.println("nbreLignes:" + nbreLignes);
-//			System.out.println("lignes." + lignes);
+			//			System.out.println("lignes." + lignes);
 		}
 
 		List<String> collection = new LinkedList<>();
-//		lecture avec un foreach
+		//		lecture avec un foreach
 		for (String element : collection) {
 			nbreLignes++;
 			System.out.println("nbreLignes:" + nbreLignes);
-//			System.out.println("elements:" + element);
+			//			System.out.println("elements:" + element);
 		}
-//		String[] temp;
-//		while ((ligne = buff.readLine()) != null) {
-//			System.out.println(ligne);
-//			temp = ligne.split(" ");
-//			collection.addAll(collection);
-//			for (int i = 0; i < temp.length; i++) {
-//				nbreLignes++;
-//				System.out.println("nbreLignes:" + nbreLignes);
-////				System.out.println("mot " + temp[i]);
-//			}
+		//		String[] temp;
+		//		while ((ligne = buff.readLine()) != null) {
+		//			System.out.println(ligne);
+		//			temp = ligne.split(" ");
+		//			collection.addAll(collection);
+		//			for (int i = 0; i < temp.length; i++) {
+		//				nbreLignes++;
+		//				System.out.println("nbreLignes:" + nbreLignes);
+		////				System.out.println("mot " + temp[i]);
+		//			}
 	}
 
-//methode avexc le scanner
+	//methode avexc le scanner
 	public void chargeFichier3() throws FileNotFoundException {
 		String tableau[][] = null, ligne; // CREATION DU TABLEAU A 2 DIMENSIONS
 
@@ -132,19 +132,19 @@ public class DicoLoader {
 		}
 	}
 
-//methode java8 avec un collector
+	//methode java8 avec un collector
 	public void chargeFichier2() throws IOException {
 		List<String> dictionnaire = Files.lines(Paths.get(path)).collect(Collectors.toList());
-//		System.out.println("mot:" + dictionnaire);
+		//		System.out.println("mot:" + dictionnaire);
 		for (String string : dictionnaire) {
 
 			// System.out.println("mot: " + list[200]);
-//			System.out.println("mot: " + list);
+			//			System.out.println("mot: " + list);
 			System.out.println("mot: " + string);
 		}
 	}
 
-//methode avec File
+	//methode avec File
 	public void chargeFichier4() throws FileNotFoundException {
 
 		File file = new File(fichierPath);
@@ -161,7 +161,7 @@ public class DicoLoader {
 			int content;
 			while ((content = fis.read()) != -1) {
 				// convert to char and display it
-//				System.out.print((char) content);
+				//				System.out.print((char) content);
 			}
 
 		} catch (IOException e) {
@@ -178,11 +178,11 @@ public class DicoLoader {
 
 	public static void main(String[] args) throws IOException {
 		DicoLoader loadFichier = new DicoLoader();
-//		loadFichier.chargeFichier();
+		//		loadFichier.chargeFichier();
 		loadFichier.chargeFichier1();
-//		loadFichier.chargeFichier2();
-//		loadFichier.chargeFichier3();
-//		loadFichier.chargeFichier4();
+		//		loadFichier.chargeFichier2();
+		//		loadFichier.chargeFichier3();
+		//		loadFichier.chargeFichier4();
 	}
 }
 
