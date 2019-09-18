@@ -84,6 +84,7 @@ public class DicoLoader {
 		}
 	}
 
+//		methode avec linkedList
 	public void chargeFichier1() throws IOException {
 
 		int nbreLignes = 0;
@@ -94,7 +95,7 @@ public class DicoLoader {
 			System.out.println("nbreLignes:" + nbreLignes);
 //			System.out.println("lignes." + lignes);
 		}
-//		methode avec linkedList
+
 		List<String> collection = new LinkedList<>();
 //		lecture avec un foreach
 		for (String element : collection) {
