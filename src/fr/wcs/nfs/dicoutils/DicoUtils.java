@@ -13,25 +13,25 @@ public class DicoUtils {
 		DicoIhm ihm = new DicoIhm();
 		DicoMatch match = new DicoMatch();
 		DicoLoader loader = new DicoLoader();
-		//List<String> tabDico=loader.chargeFichier1();
-		//String[] tableauDictionnaire = tabDico.toArray(new String[tabDico.size()]);
+		List<String> tabDico=loader.chargeFichier1();
+		String[] tableauDictionnaire = tabDico.toArray(new String[tabDico.size()]);
 		
-		String[] tableauDictionnaire= {"abaissa\n" , 
-				"abaissable\n" , 
-				"abaissables\n" , 
-				"abaissai\n" , 
-				"abaissaient\n" , 
-				"abaissais\n" , 
-				"abaissait\n" , 
-				"abaissâmes\n" , 
-				"abaissant\n" , 
-				"abaissante\n" , 
-				"abaissantes\n" , 
-				"abaissants\n" , 
-				"abaissas\n" , 
-				"abaissasse\n" , 
-				"abaissassent"};
-		
+//		String[] tableauDictionnaire= {"abaissa\n" , 
+//				"abaissable\n" , 
+//				"abaissables\n" , 
+//				"abaissai\n" , 
+//				"abaissaient\n" , 
+//				"abaissais\n" , 
+//				"abaissait\n" , 
+//				"abaissâmes\n" , 
+//				"abaissant\n" , 
+//				"abaissante\n" , 
+//				"abaissantes\n" , 
+//				"abaissants\n" , 
+//				"abaissas\n" , 
+//				"abaissasse\n" , 
+//				"abaissassent"};
+//		
 
 		do 
 		{

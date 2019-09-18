@@ -11,7 +11,9 @@ public class DicoMatch {
 	static StringBuilder reponses = new StringBuilder();
 
 	public String wordIsPresent(String[] mots, String mot) {
-
+		//remis a zero du StringBuilder
+		reponses.setLength(0);
+		
 		for (int i = 0; i < mots.length; i++) {
 			if (mots[i].equals(mot)) {
 				match = true;
@@ -25,7 +27,7 @@ public class DicoMatch {
 	}
 
 	public String startBy(String[] mots, String mot) {
-
+		reponses.setLength(0);
 		for (int i = 0; i < mots.length; i++) {
 			if (mots[i].startsWith(mot)) {
 
@@ -38,7 +40,7 @@ public class DicoMatch {
 	}
 
 	public String endBy(String[] mots, String mot) {
-
+		reponses.setLength(0);
 		for (int i = 0; i < mots.length; i++) {
 			if (mots[i].endsWith(mot)) {
 				reponses.append(mots[i]);
@@ -50,7 +52,7 @@ public class DicoMatch {
 	}
 
 	public String tableauDictionnaire(String[] mots, String mot) {
-
+		reponses.setLength(0);
 		for (int i = 0; i < mots.length; i++) {
 			if (mots[i].contains(mot)) {
 				reponses.append(mots[i]);
