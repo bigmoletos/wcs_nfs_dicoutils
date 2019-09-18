@@ -41,16 +41,17 @@ public class DicoLoader {
 //			"wcs_nfs_dicoutils", fichier);
 
 //		methode avec linkedList
-	public String[] chargeFichier1() {
+
+	public List<String> chargeFichier1() {
 
 		try {
-			int nbreLignes = 0;
 			Path chemin = Paths.get(fichierPath);
 			List<String> tabDico = new LinkedList<>();
 			tabDico = Files.readAllLines(chemin);
 //		cast de List <String> en tableau de String[]
-			String[] tableauDictionnaire = tabDico.toArray(new String[tabDico.size()]);
-			return tableauDictionnaire;
+//			String[] tableauDictionnaire = tabDico.toArray(new String[tabDico.size()]);
+//			return tableauDictionnaire;
+			return tabDico;
 
 		} catch (Exception e) {
 			System.out.println("oups une erreur! " + e.getMessage());
