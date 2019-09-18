@@ -88,7 +88,9 @@ public class DicoLoader {
 
 		int nbreLignes = 0;
 		Path chemin = Paths.get(fichierPath);
-		List<String> lignes = Files.readAllLines(chemin);
+//		List<String> lignes = Files.readAllLines(chemin);
+		List<String> lignes = new LinkedList<>();
+		lignes = Files.readAllLines(chemin);
 		for (String mot : lignes) {
 			nbreLignes++;
 			System.out.println("nbreLignes:" + nbreLignes);
