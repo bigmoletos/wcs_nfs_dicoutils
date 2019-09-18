@@ -1,7 +1,4 @@
-/**
- * 
- *
- */
+
 package fr.wcs.nfs.dicoutils;
 import java.util.regex.*;
 
