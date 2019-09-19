@@ -1,12 +1,8 @@
 
 package fr.wcs.nfs.dicoutils;
 
-import java.util.regex.*;
+//import java.util.regex.*;
 
-/**
- * @author franck
- *
- */
 public class DicoMatch {
 
 	static Boolean match = false;
@@ -14,80 +10,61 @@ public class DicoMatch {
 	DicoLoader loader;
 	static StringBuilder reponses = new StringBuilder();
 
-	public recupIhm (DicoIhm ihm, DicoLoader loader) {
-		String mot = ihm.getTexte();
-		int choixNumero= ihm.getChoixMenu();
+	public String wordIsPresent(String[] mots, String mot) {
+		//remis a zero du StringBuilder
+		reponses.setLength(0);
 		
-	
-        
-        switch (choixNumero) {
-            case 1:  wordIsPresent(null, choixNumero);
-                     break;
-                     
-            case 2:  startBy(null, choixNumero);
-                     break;
-            case 3:  endBy(null, choixNumero);
-                     break;
-            case 4: ;tableauDictionnaire(null, choixNumero);
-                     break;
-            //case 5: ;
-                     //break;	
-		
-		
-	}
-
-	public StringBuilder wordIsPresent(String[] mots, String mot) {
-
 		for (int i = 0; i < mots.length; i++) {
-			if (mots[i] == mot) {
+			if (mots[i].equals(mot)) {
 				match = true;
-				// System.out.println("Ok, le mot est dans le dico!");
 			}
-
 		}
-		return reponses.append(match);
+		if (match) {
+			return reponses.append("Il y une occurrence du mot recherché.\n").toString();
+		} else {
+			return reponses.append("Il n'y a aucun mot correspondant.\n").toString();
+		}
 	}
 
-	public static StringBuilder startBy(String[] mots, String mot) {
-
+	public String startBy(String[] mots, String mot) {
+		reponses.setLength(0);
 		for (int i = 0; i < mots.length; i++) {
 			if (mots[i].startsWith(mot)) {
+
 				reponses.append(mots[i]);
 				reponses.append(",");
+				reponses.append("\n");
 			}
 		}
-		return reponses;
+		reponses.deleteCharAt(reponses.length() - 2);
+		reponses.append("Il y a "+ reponses.length() + " occurences.");
+		return reponses.toString();
 	}
 
-	
-	public static StringBuilder endBy(String[] mots, String mot) {
-
-		for (int i = 0; i < mots.length;i++) {
+	public String endBy(String[] mots, String mot) {
+		reponses.setLength(0);
+		for (int i = 0; i < mots.length; i++) {
 			if (mots[i].endsWith(mot)) {
 				reponses.append(mots[i]);
 				reponses.append(",");
+				reponses.append("\n");
 			}
-		}
-		return reponses;
+		}reponses.deleteCharAt(reponses.length() - 2);
+		reponses.append("Il y a "+ reponses.length() + " occurences.");
+		return reponses.toString();
 	}
 
-
-	public static StringBuilder tableauDictionnaire(String[] mots, String mot) {
-
+	public String tableauDictionnaire(String[] mots, String mot) {
+		reponses.setLength(0);
 		for (int i = 0; i < mots.length; i++) {
 			if (mots[i].contains(mot)) {
 				reponses.append(mots[i]);
 				reponses.append(",");
+				reponses.append("\n");
 			}
-		}
-		return reponses;
+		}//reponses.deleteCharAt(reponses.length() - 2);
+		reponses.append("Il y a "+ reponses.length() + " occurences.");
+		return reponses.toString();
 	}
 
-
-
-	
-
 }
-
-
-
