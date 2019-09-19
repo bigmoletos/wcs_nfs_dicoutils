@@ -20,3 +20,4 @@ public class DicoLoader {
 		}
 		return tabDico;
 	} }
+
