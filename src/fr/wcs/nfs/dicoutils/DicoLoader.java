@@ -15,8 +15,7 @@ public class DicoLoader {
 		for (String ligne : Files.readAllLines(Paths.get("dictionnaire.txt"))) {
 		 for (String chaine : ligne.split("\\n"))
 		 {
-		 String mot = String.valueOf(chaine);
-		 tabDico.add(mot);
+		 tabDico.add(chaine);
 		 }
 		}
 		return tabDico;

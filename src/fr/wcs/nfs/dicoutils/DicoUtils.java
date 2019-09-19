@@ -1,9 +1,7 @@
 package fr.wcs.nfs.dicoutils;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class DicoUtils {
 
@@ -58,13 +56,13 @@ public class DicoUtils {
                 ihm.standBy();
                 break;
             case 4:
-            	ihm.affichage("Entrez les dernières lettres du mot recherché: \n" );
+            	ihm.affichage("Entrez les lettres du mot recherché: \n" );
                 ihm.setTexte();
                 match.tableauDictionnaire(tableauDictionnaire, ihm.getTexte());
                 ihm.standBy();
                 break;
             case 5:
-            	ihm.affichage("Entrez les dernières lettres du mot recherché: \n" );
+            	ihm.affichage("Entrez les lettres contenues dans le mot recherché: \n" );
                 ihm.setTexte();
                 match.wordIsPresent(tableauDictionnaire, ihm.getTexte());
                 ihm.standBy();

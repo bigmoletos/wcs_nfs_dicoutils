@@ -53,8 +53,8 @@ public class DicoMatch {
 		reponses.append("Il y a "+ reponses.length() + " occurences.");
 		return reponses.toString();
 	}
-
 	public String tableauDictionnaire(String[] mots, String mot) {
+
 		reponses.setLength(0);
 		for (int i = 0; i < mots.length; i++) {
 			if (mots[i].contains(mot)) {
