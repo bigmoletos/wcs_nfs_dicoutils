@@ -7,6 +7,8 @@ public class DicoIhm {
 	Scanner saisieUtilisateur = new Scanner(System.in);
 	private int choixMenu;
 	private String texte;
+	private String motTrouve;
+	private int indiceMot;
 
 	public int getChoixMenu() {
 		return choixMenu;
@@ -50,5 +52,21 @@ public class DicoIhm {
 		affichage("Pressez Entrer pour recommencer");
 		saisieUtilisateur.nextLine();		
 		
+	}
+
+	public String getMotTrouve() {
+		return motTrouve;
+	}
+
+	public void setMotTrouve(String motTrouve) {
+		this.motTrouve = motTrouve;
+	}
+
+	public int getIndiceMot() {
+		return indiceMot;
+	}
+
+	public void setIndiceMot(int indiceMot) {
+		this.indiceMot = indiceMot;
 	}
 }
