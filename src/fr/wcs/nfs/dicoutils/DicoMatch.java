@@ -11,16 +11,17 @@ public class DicoMatch {
 	static StringBuilder reponses = new StringBuilder();
 
 	public String wordIsPresent(String[] mots, String mot) {
-		//remis a zero du StringBuilder
 		reponses.setLength(0);
 		
 		for (int i = 0; i < mots.length; i++) {
 			if (mots[i].equals(mot)) {
 				match = true;
+				
 			}
 		}
 		if (match) {
 			return reponses.append("Il y une occurrence du mot recherché.\n").toString();
+			
 		} else {
 			return reponses.append("Il n'y a aucun mot correspondant.\n").toString();
 		}
