@@ -18,12 +18,11 @@ public class DicoLoader {
 	public String ligneDuFichier;
 	public FileReader filereader;
 	public BufferedReader bufferedreader;
-
+	
 	public List<String> chargeFichier2() throws IOException {
 
 		filereader = new FileReader("dictionnaire.old.txt");
 		bufferedreader = new BufferedReader(filereader);
-
 		while ((ligneDuFichier = bufferedreader.readLine()) != null) {
 
 			tabDico.add(ligneDuFichier);

@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class DicoIhm {
 
 	Scanner saisieUtilisateur = new Scanner(System.in);
+	
 	private int choixMenu;
 	private String texte;
 	private String motTrouve;

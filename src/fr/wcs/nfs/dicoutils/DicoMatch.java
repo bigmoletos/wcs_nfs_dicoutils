@@ -1,6 +1,9 @@
 
 package fr.wcs.nfs.dicoutils;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 //import java.util.regex.*;
 
 public class DicoMatch {
@@ -15,7 +18,7 @@ public class DicoMatch {
 	public void wordIsPresent(String[] mots, String mot) {
 		// remis a zero du StringBuilder
 		reponses.setLength(0);
-		int indiceMot = 0;
+		int indiceMot = 0;		
 
 		for (int i = 0; i < mots.length; i++) {
 			if (mots[i].equals(mot)) {
@@ -26,6 +29,7 @@ public class DicoMatch {
 			}
 		}
 	}
+
 
 	public String startBy(String[] mots, String mot) {
 		reponses.setLength(0);
@@ -59,7 +63,7 @@ public class DicoMatch {
 		return reponses.toString();
 	}
 
-	public String tableauDictionnaire(String[] mots, String mot) {
+	public String containsValue(String[] mots, String mot) {
 		reponses.setLength(0);
 		compteurOccurences = 0;
 		for (int i = 0; i < mots.length; i++) {
@@ -74,21 +78,28 @@ public class DicoMatch {
 		reponses.append("Il y a " + compteurOccurences + " occurences.");
 		return reponses.toString();
 	}
-
-	public String findRegex(String[] mots, String mot) {
+	public String findRegex(String[] mots, String regex) {
 		reponses.setLength(0);
-		compteurOccurences = 0;
-		for (int i = 0; i < mots.length; i++) {
-			if (mots[i].matches(mot)) {
-				reponses.append(mots[i]);
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = null;
+		int res = 0;
+		System.out.println("regex " + regex);
+
+		for (String string : mots) {
+			matcher = pattern.matcher(string);
+			if (matcher.find()) {
+				res++;
+				reponses.append(string);
 				reponses.append(",");
 				reponses.append("\n");
 			}
 		}
+
 		reponses.deleteCharAt(reponses.length() - 2);
-		reponses.append("Il y a " + compteurOccurences + " occurences.");
+		reponses.append("Il y a " + res + " occurences.");
 		return reponses.toString();
 	}
+	
 
 	public void saisirDefinition(int indiceMot, String[] mots) {
 		reponses.setLength(0);

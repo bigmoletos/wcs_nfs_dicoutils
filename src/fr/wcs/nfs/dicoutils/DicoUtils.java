@@ -14,23 +14,6 @@ public class DicoUtils {
 		List<String> tabDico = loader.chargeFichier2();
 		String[] tableauDictionnaire = tabDico.toArray(new String[tabDico.size()]);
 
-//		String[] tableauDictionnaire= {
-//				"abaissa" , 
-//				"abaissable" , 
-//				"abaissables" , 
-//				"abaissai" , 
-//				"abaissaient" , 
-//				"abaissais" , 
-//				"abaissait" , 
-//				"abaissâmes" , 
-//				"abaissant" , 
-//				"abaissante" , 
-//				"abaissantes" , 
-//				"abaissants" , 
-//				"abaissas" , 
-//				"abaissasse" , 
-//				"abaissassent"};
-
 		do {
 			ihm.affichage(ihm.menu);
 			ihm.setChoixMenu();
@@ -57,13 +40,13 @@ public class DicoUtils {
 			case 4:
 				ihm.affichage("Entrez les lettres du mot recherché: \n");
 				ihm.setTexte();
-				ihm.affichage(match.tableauDictionnaire(tableauDictionnaire, ihm.getTexte()));
+				ihm.affichage(match.containsValue(tableauDictionnaire, ihm.getTexte()));
 				ihm.standBy();
 				break;
 			case 5:
 				ihm.affichage("Entrez les lettres contenues dans le mot recherché: \n");
 				ihm.setTexte();
-				// ihm.affichage(match.wordIsPresent(tableauDictionnaire, ihm.getTexte()));
+				ihm.affichage(match.findRegex(tableauDictionnaire, ihm.getTexte()));
 				ihm.standBy();
 				break;
 			case 6:
