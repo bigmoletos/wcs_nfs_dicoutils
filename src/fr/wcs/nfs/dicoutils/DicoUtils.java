@@ -1,51 +1,83 @@
 package fr.wcs.nfs.dicoutils;
 
 import java.io.IOException;
-import java.util.Scanner;
-
-
+import java.util.List;
 
 public class DicoUtils {
 
-	
-	
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) throws IOException {
 
+		boolean isRunning = true;
 		DicoIhm ihm = new DicoIhm();
 		DicoMatch match = new DicoMatch();
 		DicoLoader loader = new DicoLoader();
-		
-		
-		boolean isRunning=true;
-		
-		do 
-		{
-			ihm.affichageMenu();
-			ihm.affichageMessage("Entrer votre choix: ");
+		List<String> tabDico = loader.chargeFichier1();
+		String[] tableauDictionnaire = tabDico.toArray(new String[tabDico.size()]);
+
+//		String[] tableauDictionnaire= {"abaissa\n" , 
+//				"abaissable\n" , 
+//				"abaissables\n" , 
+//				"abaissai\n" , 
+//				"abaissaient\n" , 
+//				"abaissais\n" , 
+//				"abaissait\n" , 
+//				"abaissâmes\n" , 
+//				"abaissant\n" , 
+//				"abaissante\n" , 
+//				"abaissantes\n" , 
+//				"abaissants\n" , 
+//				"abaissas\n" , 
+//				"abaissasse\n" , 
+//				"abaissassent"};
+//		
+
+		do {
+			ihm.affichage(ihm.menu);
 			ihm.setChoixMenu();
-			if(ihm.getChoixMenu()>0 && ihm.getChoixMenu()<6) {
-				
-				ihm.affichageMessage("Vous avez choisi le menu: "+ihm.getChoixMenu() + "\n");
-				ihm.affichageMessage("Veuillez saisir votre recherche: ");
-				ihm.setTexte();				
-				ihm.affichageMessage("vous avez saisi: " + ihm.getTexte());
-				
-				match.recupIhm(ihm,loader);
 
-				isRunning=false;
-	
-			}else if(ihm.getChoixMenu()==0) {
-				
-				
-				isRunning=false;
-				
+			switch (ihm.getChoixMenu()) {
+			case 1:
+				ihm.affichage("Entrez le mot recherché: \n");
+				ihm.setTexte();
+				ihm.affichage(match.wordIsPresent(tableauDictionnaire, ihm.getTexte()));
+				ihm.standBy();
+				break;
+			case 2:
+				ihm.affichage("Entrez les premières lettres du mot recherché: \n");
+				ihm.setTexte();
+				ihm.affichage(match.startBy(tableauDictionnaire, ihm.getTexte()));
+				ihm.standBy();
+				break;
+			case 3:
+				ihm.affichage("Entrez les dernières lettres du mot recherché: \n");
+				ihm.setTexte();
+				ihm.affichage(match.endBy(tableauDictionnaire, ihm.getTexte()));
+				ihm.standBy();
+				break;
+			case 4:
+				ihm.affichage("Entrez les dernières lettres du mot recherché: \n");
+				ihm.setTexte();
+//				ihm.affichage(match.t(tableauDictionnaire, ihm.getTexte()));
+				match.tableauDictionnaire(tableauDictionnaire, ihm.getTexte());
+				ihm.standBy();
+				break;
+			case 5:
+				ihm.affichage("Entrez une expression réguliére: \n");
+				ihm.setTexte();
+				ihm.affichage(match.findRegex(tableauDictionnaire, ihm.getTexte()));
+				match.findRegex(tableauDictionnaire, ihm.getTexte());
+				ihm.standBy();
+				break;
+			case 0:
+				ihm.affichage("Au revoir");
+				isRunning = false;
+				break;
+			default:
+
 			}
-		} while(isRunning);
 
-		
+		} while (isRunning);
 
 	}
-	
-	
+
 }
