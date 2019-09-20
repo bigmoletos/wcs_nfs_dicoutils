@@ -7,6 +7,8 @@ public class DicoIhm {
 	Scanner saisieUtilisateur = new Scanner(System.in);
 	private int choixMenu;
 	private String texte;
+	private String motTrouve;
+	private int indiceMot;
 
 	public int getChoixMenu() {
 		return choixMenu;
@@ -33,7 +35,7 @@ public class DicoIhm {
 				+ "(*     DICO UTILS : by Nina, Franck et Stéphan                           *)\n"
 				+ "(*************************************************************************)\n"
 				+ "(*************************************************************************)\n"
-				+ "(*     1- Rechercher la présence d'un mot exacte                         *)\n"
+				+ "(*     1- Rechercher la présence d'un mot exact                         *)\n"
 				+ "(*     2- Rechercher tous les mots qui commencent par une valeur         *)\n"
 				+ "(*     3- Rechercher tous les mots qui terminent par une valeur          *)\n"
 				+ "(*     4- Rechercher tous les mots qui contiennent une valeur            *)\n"
@@ -46,9 +48,28 @@ public class DicoIhm {
 	public void affichage(String message) {
 		System.out.println(message);
 	}
+	public void affichage(int message) {
+		System.out.println(message);
+	}
 	public void standBy() {
-		affichage("Pressez Entrer pour recommencer");
+		affichage("Cliquez Entrer pour recommencer");
 		saisieUtilisateur.nextLine();		
 		
+	}
+
+	public String getMotTrouve() {
+		return motTrouve;
+	}
+
+	public void setMotTrouve(String motTrouve) {
+		this.motTrouve = motTrouve;
+	}
+
+	public int getIndiceMot() {
+		return indiceMot;
+	}
+
+	public void setIndiceMot(int indiceMot) {
+		this.indiceMot = indiceMot;
 	}
 }
