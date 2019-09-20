@@ -48,6 +48,9 @@ public class DicoIhm {
 	public void affichage(String message) {
 		System.out.println(message);
 	}
+	public void affichage(int message) {
+		System.out.println(message);
+	}
 	public void standBy() {
 		affichage("Pressez Entrer pour recommencer");
 		saisieUtilisateur.nextLine();		

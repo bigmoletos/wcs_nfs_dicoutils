@@ -11,7 +11,7 @@ public class DicoUtils {
 		DicoIhm ihm = new DicoIhm();
 		DicoMatch match = new DicoMatch();
 		DicoLoader loader = new DicoLoader();
-		List<String> tabDico = loader.chargeFichier1();
+		List<String> tabDico = loader.chargeFichier2();
 		String[] tableauDictionnaire = tabDico.toArray(new String[tabDico.size()]);
 
 //		String[] tableauDictionnaire= {
@@ -63,14 +63,16 @@ public class DicoUtils {
 			case 5:
 				ihm.affichage("Entrez les lettres contenues dans le mot recherché: \n");
 				ihm.setTexte();
-				//ihm.affichage(match.wordIsPresent(tableauDictionnaire, ihm.getTexte()));
+				// ihm.affichage(match.wordIsPresent(tableauDictionnaire, ihm.getTexte()));
 				ihm.standBy();
 				break;
-			case 6:for (String mot : tableauDictionnaire) {
-				System.out.println(mot.toString());
-			}	
-			ihm.standBy();
-				break;			
+			case 6:
+				for (String mot : tableauDictionnaire) {
+					System.out.println(mot.toString());
+				}
+				ihm.affichage(tableauDictionnaire.length);
+				ihm.standBy();
+				break;
 			case 0:
 				ihm.affichage("Au revoir");
 				isRunning = false;
