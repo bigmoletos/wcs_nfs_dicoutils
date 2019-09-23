@@ -1,10 +1,7 @@
-
 package fr.wcs.nfs.dicoutils;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-//import java.util.regex.*;
 
 public class DicoMatch {
 
@@ -24,7 +21,7 @@ public class DicoMatch {
 			if (mots[i].equals(mot)) {
 				match = true;
 				indiceMot = i;
-				System.out.println(indiceMot);
+				ihm.affichage("Il y a une occurence.");
 				saisirDefinition(indiceMot, mots);
 			}
 		}
@@ -78,6 +75,8 @@ public class DicoMatch {
 		reponses.append("Il y a " + compteurOccurences + " occurences.");
 		return reponses.toString();
 	}
+	
+	
 	public String findRegex(String[] mots, String regex) {
 		reponses.setLength(0);
 		Pattern pattern = Pattern.compile(regex);
@@ -107,7 +106,11 @@ public class DicoMatch {
 
 		ihm.affichage("Voulez vous donner définition [o/n]");
 		ihm.setTexte();
-		switch (ihm.getTexte().toUpperCase()) {
+		String charSaisie = ihm.getTexte();
+		if (charSaisie.equals("\\n")) {
+			charSaisie="O";
+		}
+		switch (charSaisie.toUpperCase()) {
 		case "O":
 			ihm.affichage("Entrez votre définition");
 			ihm.setTexte();

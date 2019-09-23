@@ -36,7 +36,7 @@ public class DicoLoader {
 
 	public List<String> chargeFichier1() throws IOException {
 
-		for (String ligne : Files.readAllLines(Paths.get("dictionnaire.old.txt"))) {
+		for (String ligne : Files.readAllLines(Paths.get("/Dropbox/projetJava/wcs_nfs_dicoutils/src/dictionnaire.old.txt"))) {
 			for (String chaine : ligne.split("\\n")) {
 				tabDico.add(chaine);
 			}
