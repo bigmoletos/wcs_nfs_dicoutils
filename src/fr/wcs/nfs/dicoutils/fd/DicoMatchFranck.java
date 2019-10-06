@@ -10,12 +10,12 @@ import java.util.List;
 public class DicoMatchFranck {
 
 	static Boolean match = false;
-	DicoIhm ihm;
-	DicoLoader loader;
+	DicoIhmFd ihm;
+	DicoLoaderFd loader;
 	static StringBuilder reponses = new StringBuilder();
 //	DicoLoader dico = new DicoLoader();
 
-	public void recupIhm(DicoIhm ihm, DicoLoader loader) {
+	public void recupIhm(DicoIhmFd ihm, DicoLoaderFd loader) {
 		String mot = ihm.getTexte();
 		int choixNumero = ihm.getChoixMenu();
 
@@ -85,7 +85,7 @@ public class DicoMatchFranck {
 
 	public static void main(String[] args) {
 		DicoMatchFranck match = new DicoMatchFranck();
-		DicoLoader dico = new DicoLoader();
+		DicoLoaderFd dico = new DicoLoaderFd();
 
 		match.wordIsPresent(dico.chargeFichier1(), "arrosoir");
 	}

@@ -11,25 +11,8 @@ public class DicoUtils {
 		DicoIhm ihm = new DicoIhm();
 		DicoMatch match = new DicoMatch();
 		DicoLoader loader = new DicoLoader();
-		List<String> tabDico = loader.chargeFichier1();
+		List<String> tabDico = loader.chargeFichier2();
 		String[] tableauDictionnaire = tabDico.toArray(new String[tabDico.size()]);
-
-//		String[] tableauDictionnaire= {"abaissa\n" , 
-//				"abaissable\n" , 
-//				"abaissables\n" , 
-//				"abaissai\n" , 
-//				"abaissaient\n" , 
-//				"abaissais\n" , 
-//				"abaissait\n" , 
-//				"abaissâmes\n" , 
-//				"abaissant\n" , 
-//				"abaissante\n" , 
-//				"abaissantes\n" , 
-//				"abaissants\n" , 
-//				"abaissas\n" , 
-//				"abaissasse\n" , 
-//				"abaissassent"};
-//		
 
 		do {
 			ihm.affichage(ihm.menu);
@@ -39,7 +22,7 @@ public class DicoUtils {
 			case 1:
 				ihm.affichage("Entrez le mot recherché: \n");
 				ihm.setTexte();
-				ihm.affichage(match.wordIsPresent(tableauDictionnaire, ihm.getTexte()));
+				match.wordIsPresent(tableauDictionnaire, ihm.getTexte());
 				ihm.standBy();
 				break;
 			case 2:
@@ -55,17 +38,22 @@ public class DicoUtils {
 				ihm.standBy();
 				break;
 			case 4:
-				ihm.affichage("Entrez les dernières lettres du mot recherché: \n");
+				ihm.affichage("Entrez les lettres du mot recherché: \n");
 				ihm.setTexte();
-//				ihm.affichage(match.t(tableauDictionnaire, ihm.getTexte()));
-				match.tableauDictionnaire(tableauDictionnaire, ihm.getTexte());
+				ihm.affichage(match.containsValue(tableauDictionnaire, ihm.getTexte()));
 				ihm.standBy();
 				break;
 			case 5:
-				ihm.affichage("Entrez une expression réguliére: \n");
+				ihm.affichage("Entrez les lettres contenues dans le mot recherché: \n");
 				ihm.setTexte();
 				ihm.affichage(match.findRegex(tableauDictionnaire, ihm.getTexte()));
-				match.findRegex(tableauDictionnaire, ihm.getTexte());
+				ihm.standBy();
+				break;
+			case 6:
+				for (String mot : tableauDictionnaire) {
+					System.out.println(mot.toString());
+				}
+				ihm.affichage(tableauDictionnaire.length);
 				ihm.standBy();
 				break;
 			case 0:
